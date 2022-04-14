@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Shoe Store</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_up">Sign Up</string>
+    <string name="or">OR</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Welcome to Shoe Store</string>
+    <string name="Login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="register_text">Registration</string>
+    <string name="account_creation_msg">Account Created Successfully</string>
+    <string name="placeholder_text">A verification email has been sent to \"%s\" </string>
+    <string name="instruction_button">Read Instruction</string>
+    <string name="instruction_headline">Instruction</string>
+    <string name="instruction_2">How to the App</string>
+    <string name="rules_text">
+        1. Browse from a list of predefined\n
+        2. Click on any listed item to see details\n
+        3. Add a new collection of shoe
+    </string>
+    <string name="navigate_to_list">To shoes</string>
+    <string name="shoe_name">Shoe Name</string>
+    <string name="company_name">Brand</string>
+    <string name="shoe_size">Size</string>
+    <string name="shoe_description">Description</string>
+    <string name="button_save">Save</string>
+    <string name="button_cancel">Cancel</string>
+</resources>

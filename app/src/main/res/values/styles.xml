@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="headline_text">
+        <item name="android:textSize">@dimen/success_text_size</item>
+        <item name="android:fontFamily">@font/atomic_age</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+    </style>
+
+    <style name="normal_text">
+        <item name="android:textSize">@dimen/regular_text_size</item>
+        <item name="android:fontFamily">@font/atomic_age</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+    </style>
+
+    <style name="edit_text">
+        <item name="android:minHeight">48dp</item>
+        <item name="android:fontFamily">@font/atomic_age</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:selectAllOnFocus">true</item>
+    </style>
+
+
+    <style name="ShapeAppearanceOverlay.MyApp.MaterialCardView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+</resources>
