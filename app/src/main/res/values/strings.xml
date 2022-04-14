@@ -33,4 +33,10 @@
     <string name="shoe_description">Description</string>
     <string name="button_save">Save</string>
     <string name="button_cancel">Cancel</string>
+
+    <string name="shoe_name_text">Name: \"%s\" </string>
+    <string name="shoe_brand_text">Brand: \"%s\" </string>
+    <string name="shoe_size_text">Size: \"%s\" </string>
+    <string name="shoe_details_text">Description: \"%s\" </string>
+
 </resources>

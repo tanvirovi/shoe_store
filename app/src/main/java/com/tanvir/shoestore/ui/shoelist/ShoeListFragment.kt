@@ -37,10 +37,11 @@ class ShoeListFragment : Fragment() {
         binding.floatingActionButton2.setOnClickListener {
             findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToAddShoeFragment())
         }
+
         viewModel.listOfShoes.observe(viewLifecycleOwner, Observer { shoeList ->
 
             for (shoe in shoeList) {
-                addTextView(shoe.name.toString())
+                addTextView(shoe)
             }
         })
 
@@ -69,14 +70,20 @@ class ShoeListFragment : Fragment() {
 
 
     @SuppressLint("NewApi")
-    private fun addTextView(brand : String) {
+    private fun addTextView(shoeDetails : Shoes) {
         val layouts = LayoutInflater.from(requireContext()).inflate(R.layout.view_show_holder,binding.listOfShoes,false)
         // Create TextView programmatically.
-        var textView = TextView(requireContext())
-        textView = layouts.requireViewById(R.id.shoe_name)
-        textView.text = brand
+        val textViewName: TextView = layouts.requireViewById(R.id.shoe_name)
+        val textViewCompany: TextView = layouts.requireViewById(R.id.shoe_brand)
+        val textViewSize: TextView = layouts.requireViewById(R.id.shoe_size)
+        val textViewDescription: TextView = layouts.requireViewById(R.id.shoe_details)
+        textViewName.text = getString(R.string.shoe_name_text ,shoeDetails.name)
+        textViewCompany.text = getString(R.string.shoe_brand_text, shoeDetails.company)
+        textViewSize.text = getString(R.string.shoe_size_text, shoeDetails.shoeSize.toString())
+        textViewDescription.text = getString(R.string.shoe_details_text, shoeDetails.description)
 
         // Add TextView to LinearLayout
         binding.listOfShoes.addView(layouts)
     }
+
 }
