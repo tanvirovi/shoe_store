@@ -30,13 +30,18 @@ class ShoeListFragment : Fragment() {
             container,
             false
         )
+        viewModel = ViewModelProvider(requireActivity())[ShoeListViewModel::class.java]
+        binding.viewmodel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
 
         viewModel = ViewModelProvider(requireActivity())[ShoeListViewModel::class.java]
         setHasOptionsMenu(true)
 
-        binding.floatingActionButton2.setOnClickListener {
-            findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToAddShoeFragment())
-        }
+        viewModel.stateOfFav.observe(viewLifecycleOwner, Observer {
+            if(it){
+                findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToAddShoeFragment())
+            }
+        })
 
         viewModel.listOfShoes.observe(viewLifecycleOwner, Observer { shoeList ->
 

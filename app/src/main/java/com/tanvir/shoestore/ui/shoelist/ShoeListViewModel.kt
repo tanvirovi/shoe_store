@@ -1,15 +1,9 @@
 package com.tanvir.shoestore.ui.shoelist
 
 import android.util.Log
-import android.view.Gravity
-import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.tanvir.shoestore.R
-import com.tanvir.shoestore.ui.login.LoginFormState
 
 class ShoeListViewModel : ViewModel() {
     private val _listOfShoes : MutableLiveData<List<Shoes>> = MutableLiveData(listOf())
@@ -20,30 +14,49 @@ class ShoeListViewModel : ViewModel() {
     val saveOrCancel : LiveData<Boolean>
         get() = _saveOrCancel
 
-    private val _editTextState = MutableLiveData<Boolean>()
-    val editTextState : LiveData<Boolean>
-        get() = _editTextState
+    private val _stateOfFav = MutableLiveData<Boolean>()
+    val stateOfFav : LiveData<Boolean>
+        get() = _stateOfFav
+
+
+    // creating two way data
+    val editTextName = MutableLiveData<String>()
+    val editTextBrand = MutableLiveData<String>()
+    val editTextSize = MutableLiveData<String>()
+    val editTextDescription = MutableLiveData<String>()
 
     init {
         _saveOrCancel.value = false
-        _editTextState.value = false
+        _stateOfFav.value = false
     }
 
-    fun saveShoesDetails(name: String, companyName: String, size: Int, description: String){
-        _listOfShoes.value = _listOfShoes.value?.plus(Shoes(name, companyName, size, description)) ?: listOf(Shoes(name, companyName, size, description))
+    fun saveShoesDetails(){
+        Log.e("saveShoesDetails",_stateOfFav.value.toString())
+
+        _listOfShoes.value = _listOfShoes.value?.plus(Shoes(editTextName.value, editTextBrand.value,
+            editTextSize.value?.toInt(), editTextDescription.value)) ?: listOf(Shoes(editTextName.value, editTextBrand.value,
+            editTextSize.value?.toInt(), editTextDescription.value))
+
         _saveOrCancel.value = true
+        _stateOfFav.value = false
+
     }
 
     fun cancel(){
+        Log.e("cancel",_stateOfFav.value.toString())
         _saveOrCancel.value = true
+        _stateOfFav.value = false
     }
     fun changeState(){
+        Log.e("changeState",_stateOfFav.value.toString())
         _saveOrCancel.value = false
-        _editTextState.value =  false
+        _stateOfFav.value = false
+
     }
 
-    fun shoeDataChanged(name: String, companyName: String, size: String, description: String) {
-        _editTextState.value = !(name.isEmpty() || companyName.isEmpty() || description.isEmpty() || size.isEmpty())
+    fun addNewShoes(){
+        Log.e("addNewShoes",_stateOfFav.value.toString())
+        _stateOfFav.value = true
     }
 
 }

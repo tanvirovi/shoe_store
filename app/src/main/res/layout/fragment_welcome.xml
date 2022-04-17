@@ -12,6 +12,10 @@
             type="com.tanvir.shoestore.ui.welcome.WelcomeViewModel" />
     </data>
 
+    <!--    I wanted Account created successfully text to appear in the middle of the-->
+    <!--    screen, So I used ConstraintLayout which help me design the screen according-->
+    <!--    my specification-->
+    <!--    -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
         android:layout_width="match_parent"

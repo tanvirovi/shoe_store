@@ -11,6 +11,11 @@
             type="com.tanvir.shoestore.ui.login.LoginViewModel" />
     </data>
 
+    <!--    so i wanted to use scrollView just to use the fragment when rotated-->
+    <!--    So that why I used ConstraintLayout insted of other available layouts -->
+    <!--    if I have not consider the scolling option in this layout I would prefer -->
+    <!--    using LinearLayout instead-->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
         android:layout_width="match_parent"

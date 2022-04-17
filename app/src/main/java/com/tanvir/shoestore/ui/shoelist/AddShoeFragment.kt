@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.tanvir.shoestore.R
@@ -32,46 +33,6 @@ class AddShoeFragment : Fragment() {
         viewModel = ViewModelProvider(requireActivity())[ShoeListViewModel::class.java]
         binding.addShowViewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
-
-        val afterTextChangedListener = (object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-                viewModel.shoeDataChanged(
-                    binding.shoeName.text.toString(),
-                    binding.brandName.text.toString(),
-                    binding.shoeSize.text.toString(),
-                    binding.shoeDescription.text.toString(),
-                )
-            }
-
-        })
-
-        binding.shoeName.addTextChangedListener(afterTextChangedListener)
-        binding.brandName.addTextChangedListener(afterTextChangedListener)
-        binding.shoeSize.addTextChangedListener(afterTextChangedListener)
-        binding.shoeDescription.addTextChangedListener(afterTextChangedListener)
-
-        binding.button2.setOnClickListener {
-
-            viewModel.saveShoesDetails(
-                binding.shoeName.text.toString(),
-                binding.brandName.text.toString(),
-                binding.shoeSize.text.toString().toInt(),
-                binding.shoeDescription.text.toString()
-            )
-        }
-
-        viewModel.editTextState.observe(viewLifecycleOwner, Observer {
-            if (it){
-                binding.button2.isEnabled = it
-
-            }
-        })
 
         viewModel.saveOrCancel.observe(viewLifecycleOwner, Observer {
             if (it){

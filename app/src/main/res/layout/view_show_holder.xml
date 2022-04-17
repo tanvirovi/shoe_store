@@ -1,40 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:background="@color/md_theme_light_onSecondary"
-    android:padding="@dimen/layout_padding"
-    android:layout_height="wrap_content">
 
-    <LinearLayout
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.tanvir.shoestore.ui.shoelist.ShoeListViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/layout_padding"
-        android:background="@color/md_theme_light_primaryContainer"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:background="@color/md_theme_light_onSecondary"
+        android:padding="@dimen/layout_padding">
 
+        <!--    this just hold some textView which I intended to sho show shoe information -->
+        <!--    vertically and in a ordered manner-->
 
-        <TextView
-            android:id="@+id/shoe_name"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/normal_text" />
+            android:layout_height="match_parent"
+            android:background="@color/md_theme_light_primaryContainer"
+            android:orientation="vertical"
+            android:padding="@dimen/layout_padding">
 
-        <TextView
-            android:id="@+id/shoe_brand"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/normal_text"/>
 
-        <TextView
-            android:id="@+id/shoe_size"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/normal_text"/>
+            <TextView
+                android:id="@+id/shoe_name"
+                style="@style/normal_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/shoe_details"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/normal_text"/>
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/shoe_brand"
+                style="@style/normal_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/shoe_size"
+                style="@style/normal_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/shoe_details"
+                style="@style/normal_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

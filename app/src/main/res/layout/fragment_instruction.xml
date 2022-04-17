@@ -10,7 +10,10 @@
             name="instructionViewModel"
             type="com.tanvir.shoestore.ui.instruction.InstructionViewModel" />
     </data>
-
+    <!--    I wanted style the layout with ImageView with the ratio of 16:9 which-->
+    <!--    in my case I found easier to design with a ConstraintLayout, But if -->
+    <!--    I don't use Image just a simple layout with text in it I would definitely use-->
+    <!--    LinearLayout-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
