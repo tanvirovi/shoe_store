@@ -18,7 +18,6 @@ class ShoeListViewModel : ViewModel() {
     val stateOfFav : LiveData<Boolean>
         get() = _stateOfFav
 
-
     // creating two way data
     val editTextName = MutableLiveData<String>()
     val editTextBrand = MutableLiveData<String>()
@@ -31,8 +30,6 @@ class ShoeListViewModel : ViewModel() {
     }
 
     fun saveShoesDetails(){
-        Log.e("saveShoesDetails",_stateOfFav.value.toString())
-
         _listOfShoes.value = _listOfShoes.value?.plus(Shoes(editTextName.value, editTextBrand.value,
             editTextSize.value?.toInt(), editTextDescription.value)) ?: listOf(Shoes(editTextName.value, editTextBrand.value,
             editTextSize.value?.toInt(), editTextDescription.value))
@@ -43,19 +40,16 @@ class ShoeListViewModel : ViewModel() {
     }
 
     fun cancel(){
-        Log.e("cancel",_stateOfFav.value.toString())
         _saveOrCancel.value = true
         _stateOfFav.value = false
     }
+
     fun changeState(){
-        Log.e("changeState",_stateOfFav.value.toString())
         _saveOrCancel.value = false
         _stateOfFav.value = false
-
     }
 
     fun addNewShoes(){
-        Log.e("addNewShoes",_stateOfFav.value.toString())
         _stateOfFav.value = true
     }
 
